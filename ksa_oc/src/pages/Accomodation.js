@@ -9,24 +9,31 @@ import { datas } from '../data/data'
 import { useParams, Navigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
+// On crée le composant Accomodation qui sera render pour le path /accomodation/:id et qui réutilisera les composants Footer Header et Collapse
+// On crée un state qui un tableau contenant le ou les URL des images à afficher. imageSlider servira lui même de prop au composant Carousel
 export default function Accomodation() {
   const [imageSlider, setImageSlider] = useState([])
 
+  // On récupère l'id contenu dans l'URL puis on utilise .filter pour n'avoir que l'objet contenant cet id
   const { id } = useParams()
   const idAccomodation = id
   const dataCurrentAccomodation = datas.filter(
     (data) => data.id === idAccomodation
   )
 
+  // On récupère le tableau contenant les URL dans les datas en s'assurant que la valeur ne soit pas undefined
+  const pictures =
+    dataCurrentAccomodation.length > 0
+      ? dataCurrentAccomodation[0].pictures
+      : ''
+
+  // On crée un useEffect pour mettre à jour le state avec pictures à chaque fois que l'id de l'URL change
   useEffect(() => {
     setImageSlider(pictures)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idAccomodation])
 
-  const pictures =
-    dataCurrentAccomodation.length > 0
-      ? dataCurrentAccomodation[0].pictures
-      : ''
+  // On met dans des const toutes les données dont on a besoin en s'assurant que leur valeur ne soit pas undefined
   const name =
     dataCurrentAccomodation.length > 0
       ? dataCurrentAccomodation[0].host.name.split(' ')
@@ -57,6 +64,10 @@ export default function Accomodation() {
   const title =
     dataCurrentAccomodation.length > 0 ? dataCurrentAccomodation[0].title : ''
 
+  // On s'assure que notre id soit valide dans l'URL en vérifiant le length de dataCuurentAccomodation
+  // s'il n'est pas supérieur à 0 alors on utilie Naviguate pour aller sur le path /error
+  //Pour les étoiles, on .map dans unu Array(5) avec une constante index +1 pour simuler un index de 1 à 5 tant que rating est >= à la constante on affiche
+  // une étoile rouge, sinon grise
   return dataCurrentAccomodation.length > 0 ? (
     <div>
       <Header />

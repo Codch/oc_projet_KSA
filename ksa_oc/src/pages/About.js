@@ -4,7 +4,9 @@ import Banner from '../components/Banner'
 import Collapse from '../components/Collapse'
 import Footer from '../components/Footer'
 
+// On crée le composant About qui sera render pour le path /About qui se servira des composants Header Banner Collapse et Footer
 export default function About() {
+  //On crée un tableau pour les données à afficher
   const aboutDatas = [
     {
       id: 1,
@@ -32,6 +34,7 @@ export default function About() {
     },
   ]
 
+  // On fait une liste avec un .map pour chaque objet contenu dans aboutDatas qui affichera le composant Collapse avec les props title et content
   return (
     <div>
       <Header />

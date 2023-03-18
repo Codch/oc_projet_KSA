@@ -1,6 +1,7 @@
 import '../sass/components/navbar.scss'
 import { Link } from 'react-router-dom'
 
+// On crée le composant Navbar en utilsant Link de react-router-dom pour avoir un lien vers la page home et la page about
 export default function Navbar() {
   const currentRoute = window.location.pathname
 

@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
 
+// On crée le composant NotFound qui sera utilisé pour render une page d'erreur
 export default function NotFound() {
   return (
     <>
@@ -11,7 +12,7 @@ export default function NotFound() {
         <div className="notFound_infos">
           <h1 className="notFound_infos_title">404</h1>
           <p className="notFound_infos_content">
-            Oups! La page que vous recherchez n'existe pas.
+            Oups ! La page que vous recherchez n'existe pas.
           </p>
         </div>
         <Link className="notFound_infos_return" to="/Kasa/">

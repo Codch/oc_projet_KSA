@@ -4,6 +4,7 @@ import About from './pages/About'
 import Accomodation from './pages/Accomodation'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
+// On crée les routes en spécifiant le chemin (path) et le composant à afficher pour chaque route
 const router = createBrowserRouter([
   {
     path: '/Kasa/',
@@ -23,9 +24,11 @@ const router = createBrowserRouter([
   },
 ])
 
+// Composant principal de l'application
 function App() {
   return (
     <>
+      {/* On fournit le router créé précédemment en tant que prop à la balise RouterProvider */}
       <RouterProvider router={router} />
     </>
   )
