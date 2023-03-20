@@ -8,7 +8,7 @@ export default function Carousel({ imageSlider }) {
   // On crée un state qui servira à determiner l'index de l'image à afficher
   const [picturesIndex, setPicturesIndex] = useState(0)
 
-  // On crée une cosntante nextSlide pour augmenter le state de 1 ou retourner à 0 si l'on est déjà sur la dernière image
+  // On crée une constante nextSlide pour augmenter le state de 1 ou retourner à 0 si l'on est déjà sur la dernière image
   const nextSlide = () => {
     setPicturesIndex(picturesIndex + 1)
     if (picturesIndex === imageSlider.length - 1) setPicturesIndex(0)

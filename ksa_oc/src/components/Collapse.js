@@ -23,7 +23,13 @@ export default function Collapse({ title, content }) {
           alt="arrow to show or unshow content"
         />
       </h3>
-      <div className="collapse_content">{content}</div>
+      <div className="collapse_content">
+        {Array.isArray(content)
+          ? content.map((item, index) => {
+              return <p key={index}>{item}</p>
+            })
+          : content}
+      </div>
     </div>
   ) : (
     <div className="collapse">
